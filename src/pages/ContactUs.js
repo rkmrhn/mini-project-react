@@ -1,3 +1,4 @@
+import Query from "./Query";
 function ContactUs() {
   return (
     <>
@@ -60,6 +61,7 @@ function ContactUs() {
       </div>
     </div>
     <hr />
+    <Query/>
     </>
   );
 }

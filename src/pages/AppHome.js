@@ -1,7 +1,8 @@
 import { Carousel } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 
 function AppHome() {
   return (
@@ -28,56 +29,64 @@ function AppHome() {
 function Mycards() {
   return (
     <>
-      <div className="row">
+      <div className="row justify-content-center">
         <div className="col-md-3 col-sm-12">
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="./images/Zulubar2.jpg" />
+            <Link to={"/zulubar"}>
+              <Card.Img variant="top" src="./images/Zulubar2.jpg" />
+            </Link>
+
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title><h5>Zulubar</h5></Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+              <h5>Price 50 Rs.</h5>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">buy</Button>
             </Card.Body>
           </Card>
         </div>
         <div className="col-md-3 col-sm-12">
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="./images/Zulubar2.jpg" />
+            <Link to={"/triplechocolate"}>
+              <Card.Img variant="top" src="./images/Triple Chocolate1.jpg" />
+            </Link>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title><h5>Triple Chocolate</h5></Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+              <h5>Price 70 Rs.</h5>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">buy</Button>
             </Card.Body>
           </Card>
         </div>
         <div className="col-md-3 col-sm-12">
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="./images/Zulubar2.jpg" />
+            <Link to={"/chocolatecone"}>
+              <Card.Img variant="top" src="./images/Chocolate cone_0.jpg" />
+            </Link>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title><h5>Chocolate Cone</h5></Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+              <h5>Price 120 Rs.</h5>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">buy</Button>
             </Card.Body>
           </Card>
         </div>
         <div className="col-md-3 col-sm-12">
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="./images/Zulubar2.jpg" />
+            <Link to={"/aam"}>
+              <Card.Img
+                variant="top"
+                src="./images/Aam Candy-Product-detail.jpg"
+              />
+            </Link>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title><h5>Aam</h5></Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+              <h5>Price 60 Rs.</h5>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">buy</Button>
             </Card.Body>
           </Card>
         </div>
@@ -94,6 +103,7 @@ function MyAppCarousel() {
           src="./images/Havmor_Tub-Dangler-Website-Banners.gif"
           alt="First slide"
         />
+
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -142,6 +152,5 @@ function MyAppCarousel() {
     </Carousel>
   );
 }
-
 
 export default AppHome;

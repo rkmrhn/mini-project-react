@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MyUserList() {
+  let navigate = useNavigate();
+
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
@@ -14,6 +17,28 @@ function MyUserList() {
 
     setUserList([...list]);
   };
+  const deleteUserAction = async (item) => {
+    try {
+      // backend call delete this user.
+      let url = `http://localhost:4000/delete-user?email=${item.email}`;
+      let res = await fetch(url);
+
+      if (res.status == 500) {
+        let erroMessage = await res.text();
+        throw new Error(erroMessage);
+      }
+
+      alert("success");
+
+      // refresh the page on success
+      getAllUserAction();
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+  const editUserAction = (item) => {
+    navigate("/registration");
+  };
 
   return (
     <>
@@ -25,7 +50,6 @@ function MyUserList() {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Password</th>
                 <th scope="col">Email</th>
                 <th scope="col">Mobile</th>
                 <th scope="col">Actions</th>
@@ -36,12 +60,21 @@ function MyUserList() {
                 <tr>
                   <th scope="row">{index + 1}</th>
                   <td className="text-capitalize">{item.username}</td>
-                  <td>*******</td>
                   <td>{item.email}</td>
                   <td>{item.mobile}</td>
                   <td className="fs-5">
-                    <input type="button" value="&#x270E;" /> /{" "}
-                    <input type="button" value="&#128686;" />
+                    <input
+                      type="button"
+                      value="&#x270E;"
+                      onClick={() => editUserAction(item)}
+                    />{" "}
+                    /
+                    <input
+                      type="button"
+                      value="&#128686;"
+                      // onClick={deleteUserAction}
+                      onClick={() => deleteUserAction(item)}
+                    />
                   </td>
                 </tr>
               ))}

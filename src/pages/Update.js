@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-function MyRegistration() {
+function Update() {
   let formRef = useRef();
   let [isSuccess, setIsSuccess] = useState(false);
   let [isError, setIsError] = useState(false);
@@ -95,8 +95,6 @@ function MyRegistration() {
                   className="form-control form-control-lg mb-2 mt-2"
                   placeholder="Enter username"
                   value={user.username}
-                  minLength="2"
-                  maxLength="20"
                   onChange={handlerUsernameAction}
                   required
                 />
@@ -107,7 +105,6 @@ function MyRegistration() {
                   className="form-control form-control-lg mb-2 mt-2"
                   placeholder="Enter Email"
                   value={user.email}
-                  
                   onChange={handlerEmailAction}
                   required
                 />
@@ -117,8 +114,6 @@ function MyRegistration() {
                   className="form-control form-control-lg mb-2 mt-2"
                   placeholder="Enter mobile"
                   value={user.mobile}
-                  minLength="10"
-                  maxLength="10"
                   onChange={handlerMobileAction}
                   required
                 />
@@ -128,8 +123,6 @@ function MyRegistration() {
                   className="form-control form-control-lg mb-2 mt-2"
                   placeholder="Enter your address"
                   value={user.address}
-                  minLength="5"
-                  maxLength="20"
                   onChange={handlerAddressAction}
                   required
                 />
@@ -140,8 +133,6 @@ function MyRegistration() {
                   className="form-control form-control-lg mb-2"
                   placeholder="Enter password"
                   value={user.password}
-                  minLength="6"
-                  maxLength="10"
                   onChange={handlerPasswordAction}
                   required
                 />
@@ -167,4 +158,4 @@ function MyRegistration() {
   );
 }
 
-export default MyRegistration;
+export default Update;

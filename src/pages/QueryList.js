@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function MyTodoList() {
+function QueryList() {
   let navigate = useNavigate();
 
   const [userList, setUserList] = useState([]);
@@ -11,7 +11,7 @@ function MyTodoList() {
   }, []);
 
   const getAllUserAction = async () => {
-    let url = `http://localhost:4000/find-all-product`;
+    let url = `http://localhost:4000/find-all-query`;
     let res = await fetch(url);
     let list = await res.json();
 
@@ -20,7 +20,7 @@ function MyTodoList() {
   const deleteUserAction = async (item) => {
     try {
       // backend call delete this user.
-      let url = `http://localhost:4000/delete-product?name=${item.name}`;
+      let url = `http://localhost:4000/delete-query?email=${item.email}`;
       let res = await fetch(url);
 
       if (res.status == 500) {
@@ -50,19 +50,18 @@ function MyTodoList() {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Flavor</th>
-                <th scope="col">Discription</th>
+                <th scope="col">Email</th>
+                <th scope="col">Complain</th>
+                
               </tr>
             </thead>
             <tbody>
               {userList.map((item, index) => (
                 <tr>
                   <th scope="row">{index + 1}</th>
-                  <td className="text-capitalize">{item.name}</td>
-                  <td>{item.price}</td>
-                  <td>{item.flavor}</td>
-                  <td>{item.discription}</td>
+                  <td className="text-capitalize">{item.username}</td>
+                  <td>{item.email}</td>
+                  <td>{item.complain}</td>
                   <td className="fs-5">
                     <input
                       type="button"
@@ -87,4 +86,4 @@ function MyTodoList() {
   );
 }
 
-export default MyTodoList;
+export default QueryList;
